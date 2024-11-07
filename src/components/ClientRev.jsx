@@ -1,29 +1,18 @@
 import React, { useState } from "react";
-import ClientInfo from "./ClientInfo";
-import female from "../assets/images/female.svg";
-import male from "../assets/images/male.svg";
 
 const ClientRev = (review) => {
-  const [client, setClient] = useState([
-    {
-      genderImg: female,
-      genderImgAlt: "female",
-      name: "Fannie Summers",
-      job: "Designer",
-    },
-    {
-      genderImg: male,
-      genderImgAlt: "male",
-      name: "Albert Flores",
-      job: "Developer",
-    },
-  ]);
-
   return (
     <div className="client-review">
-      <img src={review.quotes} className="quote-img" alt="review.quoteAlt" />
-      <img src={review.rating} className="rating-img" alt="review.ratingAlt" />
+      <img src={review.quotes} className="quote-img" alt="quotes" />
+      <img src={review.rating} className="rating-img" alt="rating1" />
       <p>{review.text}</p>
+      <img
+        className="client-img"
+        src={review.genderImg}
+        alt={review.genderImgAlt}
+      />
+      <h3 className="client-name">{review.name}</h3>
+      <p className="client-job">{review.job}</p>
     </div>
   );
 };
