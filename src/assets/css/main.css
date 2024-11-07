@@ -431,6 +431,7 @@ header .container {
     font-size: 16px;
     text-align: left;
     line-height: var(--line-height-p);
+    margin-bottom: 4rem;
   }
 
   @media (min-width: 768px) {
