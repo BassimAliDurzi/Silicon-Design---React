@@ -1,14 +1,14 @@
 import React from "react";
 
-const Fotter = () => {
+const Footer = () => {
   return (
-    <div>
-      <div className="container">
-        <p className="copyright">© 2024 Silicon. All rights reserved.</p>
-        <p className="credit">Credit MadrasThemes</p>
+    <footer>
+      <div class="container">
+        <p class="copyright">© 2024 Silicon. All rights reserved.</p>
+        <p class="credit">Credit MadrasThemes</p>
       </div>
-    </div>
+    </footer>
   );
 };
 
-export default Fotter;
+export default Footer;
