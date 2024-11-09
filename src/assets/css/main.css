@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --clr-dark: #0b0f19;
@@ -834,10 +837,6 @@ header .container {
     }
 
     details[open] summary .icon {
-      background-color: #6366f1;
-      box-shadow: 0 1px 10px var(--clr-primary);
-      -webkit-transform: rotate(180deg);
-
       i {
         color: var(--clr-white);
       }
