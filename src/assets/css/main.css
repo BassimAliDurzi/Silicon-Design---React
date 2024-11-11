@@ -1,21 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --clr-dark: #0b0f19;
+:root[data-theme="light"] {
   --clr-primary: #6366f1;
-  --clr-gray: #9397ad;
-  --clr-white: #ffffff;
-  --clr-feature-gray: #f3f6ff;
-  --clr-headlines-dark: #131022;
-  --clr-text: #585c7b;
-  --clr-border-gray: #e2e5f1;
+  --clr-headline: #0b0f19;
+  --clr-navbar: #33354d;
+  --clr-text: #565973;
+  --clr-text-btn: #ffffff;
+  --clr-toggle-bg: #9397ad;
+  --clr-brand-bg: #ffffff;
+  --clr-feature-bg: #ebedf7;
+  --clr-section-bg: #f3f6ff;
+  --clr-icon-bg: #f3f6ff;
+  --clr-icon: #33354d;
+  --clr-icon-open: #ffffff;
+  --clr-faq-bg: #ffffff;
+  --clr-border: #e2e3eb;
+  --clr-btn-app-bg: #0b0f19;
 
   --container-padding: 1rem;
   --transtion-time: all 0.2s;
+  --line-height-p: 28.8px;
+  --line-height-headline: 30.2px;
+}
 
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --clr-primary: #6366f1;
+  --clr-headline: #ffffff;
+  --clr-navbar: #ffffff;
+  --clr-text: #ffffff;
+  --clr-text-btn: #ffffff;
+  --clr-toggle-bg: #9397ad;
+  --clr-brand-bg: #101627;
+  --clr-feature-bg: #0b0f19;
+  --clr-section-bg: #0b0f19;
+  --clr-icon-bg: #2c313d;
+  --clr-icon: #ffffff;
+  --clr-icon-open: #ffffff;
+  --clr-faq-bg: #190b13;
+  --clr-border: #404046;
+  --clr-btn-app-bg: #cccdd1;
+
+  --container-padding: 1rem;
+  --transtion-time: all 0.2s;
   --line-height-p: 28.8px;
   --line-height-headline: 30.2px;
 }
@@ -62,18 +91,31 @@ body {
 }
 
 a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: left;
   color: var(--clr-primary);
   text-decoration: none;
+
+  .company-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--clr-headline);
+    text-decoration: none;
+  }
 }
 
 a:hover {
   color: var(--clr-primary);
-  text-decoration: underline;
+  .nav-link {
+    text-decoration: underline;
+  }
 }
 
 .btn-primary {
   background-color: var(--clr-primary);
-  color: var(--clr-white);
+  color: var(--clr-text-btn);
   border-radius: 8px;
   padding: 12px 25px;
   display: flex;
@@ -83,8 +125,8 @@ a:hover {
 }
 
 .btn-primary:hover {
-  background-color: var(--clr-gray);
-  color: var(--clr-white);
+  background-color: var(--clr-toggle-bg);
+  color: var(--clr-text-btn);
   text-decoration: none;
 }
 
@@ -93,8 +135,8 @@ a:hover {
 }
 
 .btn-download-app {
-  background-color: var(--clr-dark);
-  color: var(--clr-white);
+  background-color: var(--clr-btn-app-bg);
+  color: var(--clr-text-btn);
   border-radius: 8px;
   padding: 12px 25px;
   display: flex;
@@ -105,7 +147,7 @@ a:hover {
 
 .btn-download-app:hover {
   background-color: var(--clr-primary);
-  color: var(--clr-white);
+  color: var(--clr-text-btn);
   text-decoration: none;
 }
 
@@ -119,64 +161,64 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 10px;
-}
 
-.btn-toggle-switch .label {
-  display: none;
-}
+  .label {
+    display: none;
+  }
 
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 45px;
-  height: 25px;
-}
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+  }
 
-.toggle-switch input {
-  opacity: 0;
-}
+  input {
+    opacity: 0;
+  }
 
-.toggle-switch input:checked + .slider {
-  background-color: var(--clr-primary);
-}
+  input:checked + .slider {
+    background-color: var(--clr-primary);
+  }
 
-.toggle-switch input:focus + .slider {
-  box-shadow: 0 0 1px var(--clr-primary);
-}
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--clr-primary);
+  }
 
-.toggle-switch input:checked + .slider::before {
-  transform: translateX(18px);
-  background-color: var(--clr-white);
-}
+  input:checked + .slider::before {
+    transform: translateX(18px);
+    background-color: var(--clr-text-btn);
+  }
 
-.toggle-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--clr-gray);
-  transition: all 0.2s;
-}
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--clr-toggle-bg);
+    transition: all 0.2s;
+  }
 
-.toggle-switch .slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 2.5px;
-  background-color: var(--clr-white);
-  transition: all 0.2s;
-}
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 2.5px;
+    background-color: var(--clr-text-btn);
+    transition: all 0.2s;
+  }
 
-.toggle-switch .slider.round {
-  border-radius: 35px;
-}
+  .slider.round {
+    border-radius: 35px;
+  }
 
-.toggle-switch .slider.round:before {
-  border-radius: 50%;
+  .slider.round:before {
+    border-radius: 50%;
+  }
 }
 
 .navbar {
@@ -184,7 +226,7 @@ a:hover {
 }
 
 .nav-link {
-  color: var(--clr-dark);
+  color: var(--clr-navbar);
   font-weight: 600;
   text-decoration: none;
 }
@@ -219,7 +261,7 @@ header .container {
   padding-bottom: 2rem;
 
   .container {
-    background-color: var(--clr-white);
+    background-color: var(--clr-brand-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -238,7 +280,7 @@ header .container {
 }
 
 #hero {
-  background: rgb(99, 102, 241);
+  background: var(--clr-primary);
   background: linear-gradient(
     0deg,
     rgba(99, 102, 241, 0.1) 0%,
@@ -282,7 +324,7 @@ header .container {
     h1 {
       font-size: 36px;
       font-weight: 800;
-      color: var(--clr-headlines-dark);
+      color: var(--clr-headline);
 
       @media (min-width: 768px) {
         font-size: 56px;
@@ -319,7 +361,7 @@ header .container {
     }
 
     .discover-more {
-      color: var(--clr-dark);
+      color: var(--clr-text);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -396,11 +438,11 @@ header .container {
   h2 {
     font-size: 27.9px;
     font-weight: 900;
-    color: var(--clr-headlines-dark);
+    color: var(--clr-headline);
   }
 
   h3 {
-    color: var(--clr-headlines-dark);
+    color: var(--clr-headline);
   }
 
   #app-features-text {
@@ -420,7 +462,7 @@ header .container {
   }
 
   .feature-img {
-    background-color: var(--clr-feature-gray);
+    background-color: var(--clr-feature-bg);
     width: 60px;
     height: 60px;
     display: flex;
@@ -434,7 +476,6 @@ header .container {
     font-size: 16px;
     text-align: left;
     line-height: var(--line-height-p);
-    margin-bottom: 4rem;
   }
 
   @media (min-width: 768px) {
@@ -475,7 +516,7 @@ header .container {
 }
 
 #app-features-2 {
-  background-color: var(--clr-feature-gray);
+  background-color: var(--clr-section-bg);
 
   .container {
     padding-top: 2rem;
@@ -490,7 +531,7 @@ header .container {
     font-size: 27.9px;
     font-weight: 800;
     padding-bottom: 1rem;
-    color: var(--clr-headlines-dark);
+    color: var(--clr-headline);
   }
 
   .mobile-text {
@@ -500,7 +541,7 @@ header .container {
       text-align: center;
       padding-left: 1rem;
       padding-right: 1rem;
-      color: var(--clr-headlines-dark);
+      color: var(--clr-headline);
     }
 
     p {
@@ -554,7 +595,7 @@ header .container {
 
     h3 {
       text-align: center;
-      color: var(--clr-headlines-dark);
+      color: var(--clr-headline);
       line-height: var(--line-height-headline);
       font-size: 22.7px;
       font-weight: 800;
@@ -626,7 +667,7 @@ header .container {
     }
 
     h3 {
-      color: var(--clr-headlines-dark);
+      color: var(--clr-headline);
       font-size: 32px;
       font-weight: 800;
       width: 416px;
@@ -647,7 +688,7 @@ header .container {
       width: 10rem;
       height: 3rem;
       background-color: var(--clr-primary);
-      color: var(--clr-white);
+      color: var(--clr-text-btn);
       padding: 11px 28px 11px 28px;
       border: none;
       border-radius: 0.5rem;
@@ -670,6 +711,13 @@ header .container {
       p {
         line-height: var(--line-height-p);
       }
+
+      .receive-img {
+        background-color: var(--clr-icon-bg);
+        width: 2.5rem;
+        height: 2rem;
+        text-align: center;
+      }
     }
 
     .receive-info {
@@ -684,7 +732,7 @@ header .container {
 
   @media (min-width: 1400px) {
     display: block;
-    background-color: var(--clr-feature-gray);
+    background-color: var(--clr-section-bg);
     padding: 3rem 8rem;
   }
 
@@ -695,7 +743,7 @@ header .container {
   }
 
   h2 {
-    color: var(--clr-headlines-dark);
+    color: var(--clr-headline);
     font-size: 40px;
     padding-right: 4rem;
     padding-top: -2rem;
@@ -705,9 +753,9 @@ header .container {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto auto;
-    background-color: var(--clr-white);
+    background-color: var(--clr-brand-bg);
     margin-top: 2.5rem;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px 0 var(--clr-border);
     padding: 1rem;
 
     .quote-img {
@@ -766,7 +814,7 @@ header .container {
 
   .contacts {
     h2 {
-      color: var(--clr-headlines-dark);
+      color: var(--clr-headline);
       font-size: 24.7;
       font-weight: 800;
       text-align: center;
@@ -785,18 +833,18 @@ header .container {
   }
 
   .questions {
-    border: 0.5px solid var(--clr-border-gray);
+    border: 0.5px solid var(--clr-border);
     border-radius: 0.5rem;
 
     .faq {
-      border: 0.5px solid var(--clr-border-gray);
+      border: 0.5px solid var(--clr-border);
       padding: 1rem;
     }
 
     details {
       summary {
         list-style: none;
-        color: var(--clr-headlines-dark);
+        color: var(--clr-headline);
         position: relative;
         display: flex;
         justify-content: space-between;
@@ -814,7 +862,7 @@ header .container {
         .icon {
           width: 36px;
           height: 36px;
-          background-color: var(--clr-feature-gray);
+          background-color: var(--clr-icon-bg);
           text-align: center;
           align-content: center;
           border-radius: 50%;
@@ -822,7 +870,7 @@ header .container {
           right: 0;
 
           i {
-            color: #3e4265;
+            color: var(--clr-icon);
           }
         }
       }
@@ -837,15 +885,19 @@ header .container {
     }
 
     details[open] summary .icon {
+      background-color: var(--clr-primary);
+      box-shadow: 0 1px 10px var(--clr-primary);
+      -webkit-transform: rotate(180deg);
+
       i {
-        color: var(--clr-white);
+        color: var(--clr-icon-open);
       }
     }
   }
 
   .contact-us {
     background-color: var(--clr-primary);
-    color: var(--clr-white);
+    color: var(--clr-text-btn);
     font-size: 14px;
     font-weight: 600;
     width: 162.29px;
@@ -904,7 +956,7 @@ header .container {
 
         button {
           border: none;
-          background-color: var(--clr-white);
+          background-color: transparent;
           text-align: left;
           margin-left: -0.3rem;
           margin-top: 0.75rem;
@@ -919,7 +971,7 @@ header .container {
         p {
           font-size: 14px;
           font-weight: 400;
-          color: #565973;
+          color: var(--clr-text);
         }
       }
 
@@ -1031,7 +1083,7 @@ header .container {
       margin-top: 5rem;
 
       .faq {
-        background-color: var(--clr-white);
+        background-color: var(--clr-faq-bg);
         width: 746px;
         row-gap: 16px;
         cursor: pointer;
@@ -1042,7 +1094,7 @@ header .container {
 
 #subscribe {
   .container {
-    background-color: var(--clr-feature-gray);
+    background-color: var(--clr-section-bg);
     width: 90%;
     padding-top: 4rem;
     padding-bottom: 3rem;
@@ -1063,7 +1115,7 @@ header .container {
   }
 
   h3 {
-    color: var(--clr-dark);
+    color: var(--clr-headline);
     font-size: 21.6px;
     font-weight: 800;
     width: 230px;
@@ -1098,7 +1150,7 @@ header .container {
       border-radius: 0 0.5rem 0.5rem 0;
       border: none;
       background-color: var(--clr-primary);
-      color: white;
+      color: var(--clr-text-btn);
       font-size: 16px;
       font-weight: 600;
     }
@@ -1170,7 +1222,7 @@ footer {
   font-size: 14px;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: var(--clr-gray);
+  color: var(--clr-text);
 
   .container {
     display: flex;
