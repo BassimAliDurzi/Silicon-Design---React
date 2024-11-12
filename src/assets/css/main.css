@@ -23,7 +23,6 @@
   --line-height-headline: 30.2px;
 }
 
-
 :root[data-theme="dark"] {
   color-scheme: dark;
 
@@ -74,6 +73,10 @@ body {
   font-style: normal;
   font-size: 16px;
   color: var(--clr-text);
+}
+
+.custom-margin-bottom {
+  margin-bottom: 5rem;
 }
 
 .wrapper {
@@ -151,12 +154,6 @@ a:hover {
   text-decoration: none;
 }
 
-.btn-mobile {
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-}
-
 .btn-toggle-switch {
   display: flex;
   align-items: center;
@@ -221,8 +218,26 @@ a:hover {
   }
 }
 
+.btn-mobile {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+}
+
 .navbar {
   display: none;
+}
+
+.nav-links.show {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: white;
+  padding: 20px;
+  z-index: 100;
 }
 
 .nav-link {
@@ -887,7 +902,7 @@ header .container {
     details[open] summary .icon {
       background-color: var(--clr-primary);
       box-shadow: 0 1px 10px var(--clr-primary);
-      -webkit-transform: rotate(180deg);
+      /* -webkit-transform: rotate(180deg); */
 
       i {
         color: var(--clr-icon-open);
@@ -1285,6 +1300,12 @@ footer {
 
   .navbar {
     display: block;
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.8rem;
+    }
   }
 
   #auth-signin {
