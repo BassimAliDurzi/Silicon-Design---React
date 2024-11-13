@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const FaqItems = ({ question, answer }) => {
+const FaqItems = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="faq">
       <details>
         <summary onClick={() => setIsOpen(!isOpen)}>
-          <span>{question}</span>
+          <span>{item.title}</span>
           <div className="icon">
             <div
               className={`${
@@ -24,7 +24,7 @@ const FaqItems = ({ question, answer }) => {
             </div>
           </div>
         </summary>
-        {isOpen && <p>{answer}</p>}
+        {isOpen && <p>{item.content}</p>}
       </details>
     </div>
   );
