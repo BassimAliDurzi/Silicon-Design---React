@@ -222,28 +222,41 @@ a:hover {
   background-color: transparent;
   border: none;
   font-size: 2rem;
-}
-
-.navbar {
-  display: none;
-}
-
-.nav-links.show {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  background-color: white;
-  padding: 20px;
   z-index: 100;
 }
 
-.nav-link {
-  color: var(--clr-navbar);
-  font-weight: 600;
-  text-decoration: none;
+.navbar {
+  display: flex;
+
+  #main-menu {
+    display: none;
+  }
+}
+
+#main-menu.show {
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-section-bg);
+  padding: 4rem;
+  line-height: 3rem;
+  z-index: 99;
+
+  .nav-link {
+    color: var(--clr-navbar);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .nav-link:hover {
+    color: var(--clr-primary);
+  }
 }
 
 .active {
@@ -1305,6 +1318,26 @@ footer {
       display: flex;
       gap: 2rem;
       font-size: 0.8rem;
+    }
+
+    #main-menu {
+      display: flex;
+      margin-left: 2rem;
+
+      .nav-link {
+        color: var(--clr-navbar);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .nav-link:hover {
+        color: var(--clr-primary);
+      }
+
+      .nav-link:first-child {
+        display: none;
+      }
     }
   }
 

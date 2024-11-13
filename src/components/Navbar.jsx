@@ -10,48 +10,46 @@ const Navbar = () => {
     setShowMenu(!showMenu);
   };
 
-  return (
-    <div className="container">
-      <Link to="/">
-        <img src={logo} alt="logo" />
-        <span className="company-name">Silicon</span>
-      </Link>
+  const hideMenu = () => {
+    setShowMenu(false);
+  };
 
-      <div className="navbar">
-        <nav id="main-menu">
-          <div className={`nav-links ${showMenu ? "show" : ""}`}>
-            <NavLink className="nav-link" to="/features">
+  return (
+    <div className="navbar">
+      <div className="container">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+          <span className="company-name">Silicon</span>
+        </Link>
+
+        <nav id="main-menu" className={`${showMenu ? "show" : ""}`}>
+          <div className="nav-links">
+            <NavLink className={`nav-link ${showMenu ? "show" : ""} `} to="/" onClick={hideMenu}>
+              Home
+            </NavLink>
+            <NavLink className="nav-link" to="/features" onClick={hideMenu}>
               App Features
             </NavLink>
-            <NavLink className="nav-link" to="/reviews">
-              Reviews
-            </NavLink>
-            <NavLink className="nav-link" to="/faqs">
-              FAQ
-            </NavLink>
-            <NavLink className="nav-link" to="/subscribe">
-              Subscribe
-            </NavLink>
-            <NavLink className="nav-link" to="/contact">
+            <NavLink className="nav-link" to="/contact" onClick={hideMenu}>
               Contact
             </NavLink>
           </div>
         </nav>
+
+        <DarkModeToggle />
+
+        <Link to="/" id="auth-signin" className="btn-primary">
+          <i className="fa-thin fa-user-large"></i>
+          <span>Sign in / up</span>
+        </Link>
+
+        <button
+          className={`btn-mobile ${showMenu ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <i className="fa-regular fa-bars"></i>
+        </button>
       </div>
-
-      <DarkModeToggle />
-
-      <Link to="/" id="auth-signin" className="btn-primary">
-        <i className="fa-thin fa-user-large"></i>
-        <span>Sign in / up</span>
-      </Link>
-
-      <button
-        className={`btn-mobile ${showMenu ? "active" : ""}`}
-        onClick={toggleMenu}
-      >
-        <i className="fa-regular fa-bars"></i>
-      </button>
     </div>
   );
 };
