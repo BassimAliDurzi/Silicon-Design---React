@@ -16,6 +16,7 @@
   --clr-faq-bg: #ffffff;
   --clr-border: #e2e3eb;
   --clr-btn-app-bg: #0b0f19;
+  --clr-rating-star: #ffba08;
 
   --container-padding: 1rem;
   --transtion-time: all 0.2s;
@@ -41,6 +42,7 @@
   --clr-faq-bg: #190b13;
   --clr-border: #404046;
   --clr-btn-app-bg: #cccdd1;
+  --clr-rating-star: #ffba08;
 
   --container-padding: 1rem;
   --transtion-time: all 0.2s;
@@ -235,24 +237,26 @@ a:hover {
 
 #main-menu.show {
   position: absolute;
-  top: 25%;
-  bottom: 25%;
-  left: 25%;
-  right: 25%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
   background-color: var(--clr-section-bg);
   padding: 4rem;
-  line-height: 3rem;
+  line-height: 5rem;
   z-index: 99;
 
   .nav-link {
+    text-align: center;
     color: var(--clr-navbar);
     font-weight: 600;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 2rem;
   }
   .nav-link:hover {
     color: var(--clr-primary);
@@ -796,11 +800,12 @@ header .container {
       box-shadow: 2px var(--clr-primary);
     }
 
-    .rating-img {
+    .star-rating {
       grid-row: 2/3;
       grid-column: 1/2;
       width: 90px;
       height: 16px;
+      color: var(--clr-rating-star);
     }
 
     p {

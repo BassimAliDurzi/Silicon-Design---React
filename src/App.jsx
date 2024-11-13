@@ -3,7 +3,7 @@ import "./assets/css/main.css";
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import Features from "./Pages/Features";
-import Reviews from "./Pages/Reviews";
+import ClientTestimonialsPage from "./Pages/ClientTestimonialsPage";
 import Faqs from "./Pages/Faqs";
 
 import Header from "./components/Header";
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
-            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/clientTestimonials" element={<ClientTestimonialsPage />} />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/subscribe" element={<SubscribePage />} />
