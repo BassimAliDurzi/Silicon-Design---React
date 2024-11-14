@@ -4,7 +4,7 @@ const ContactForm = () => {
   return (
     <>
       <div className="contact-form">
-        <h2>Get Online Consultation</h2>
+        <h3>Get Online Consultation</h3>
         <form action="" className="form">
           <label htmlFor="fullName">Full name</label>
           <input type="text" id="fullName" />
@@ -12,7 +12,7 @@ const ContactForm = () => {
           <input type="email" id="email" />
           <label htmlFor="specialist">Specialist</label>
           <input type="text" id="specialist" />
-          <input type="submit" value={"Make an appointment"} />
+          <input id="submit" type="submit" value="Make an appointment" />
         </form>
       </div>
     </>
