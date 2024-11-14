@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/css/main.css";
+import "./assets/css/theme.css";
+import "./assets/css/contact.css";
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import Features from "./Pages/Features";
@@ -21,7 +23,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
-            <Route path="/clientTestimonials" element={<ClientTestimonialsPage />} />
+            <Route
+              path="/clientTestimonials"
+              element={<ClientTestimonialsPage />}
+            />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/subscribe" element={<SubscribePage />} />

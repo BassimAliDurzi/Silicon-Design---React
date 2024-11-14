@@ -1,0 +1,49 @@
+:root[data-theme="light"] {
+    --clr-primary: #6366f1;
+    --clr-headline: #0b0f19;
+    --clr-navbar: #33354d;
+    --clr-text: #565973;
+    --clr-text-btn: #ffffff;
+    --clr-toggle-bg: #9397ad;
+    --clr-brand-bg: #ffffff;
+    --clr-feature-bg: #ebedf7;
+    --clr-section-bg: #f3f6ff;
+    --clr-icon-bg: #f3f6ff;
+    --clr-icon: #33354d;
+    --clr-icon-open: #ffffff;
+    --clr-faq-bg: #ffffff;
+    --clr-border: #e2e3eb;
+    --clr-btn-app-bg: #0b0f19;
+    --clr-rating-star: #ffba08;
+  
+    --container-padding: 1rem;
+    --transtion-time: all 0.2s;
+    --line-height-p: 28.8px;
+    --line-height-headline: 30.2px;
+  }
+  
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  
+    --clr-primary: #6366f1;
+    --clr-headline: #ffffff;
+    --clr-navbar: #ffffff;
+    --clr-text: #ffffff;
+    --clr-text-btn: #ffffff;
+    --clr-toggle-bg: #9397ad;
+    --clr-brand-bg: #101627;
+    --clr-feature-bg: #0b0f19;
+    --clr-section-bg: #0b0f19;
+    --clr-icon-bg: #2c313d;
+    --clr-icon: #ffffff;
+    --clr-icon-open: #ffffff;
+    --clr-faq-bg: #190b13;
+    --clr-border: #404046;
+    --clr-btn-app-bg: #cccdd1;
+    --clr-rating-star: #ffba08;
+  
+    --container-padding: 1rem;
+    --transtion-time: all 0.2s;
+    --line-height-p: 28.8px;
+    --line-height-headline: 30.2px;
+  }
