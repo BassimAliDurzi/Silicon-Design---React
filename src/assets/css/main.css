@@ -1406,6 +1406,12 @@ footer {
         font-size: 14px;
       }
 
+      span {
+        color: red;
+        font-size: 12px;
+        margin: -1.5rem 0 1.5rem 0.5rem;
+      }
+
       #submit {
         margin-top: 1rem;
         background-color: var(--clr-primary);

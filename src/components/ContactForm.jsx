@@ -6,20 +6,41 @@ const ContactForm = () => {
     email: "",
     specialist: "",
   });
-
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (value.trim() === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: `The ${name} field is required`,
+      }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    }
   };
 
   const handleOk = () => {
-    setSubmitted(false)
-  }
+    setSubmitted(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newErrors = {};
+    Object.keys(formData).forEach((field) => {
+      if (formData[field].trim() === "") {
+        newErrors[field] = `The ${field} field is required`;
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     const res = await fetch(
       "https://win24-assignment.azurewebsites.net/api/forms/contact",
@@ -56,7 +77,7 @@ const ContactForm = () => {
     <>
       <div className="contact-form">
         <h3>Get Online Consultation</h3>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit} noValidate>
           <label htmlFor="fullName">Full name</label>
           <input
             type="text"
@@ -67,6 +88,7 @@ const ContactForm = () => {
             required
             placeholder="Full Name"
           />
+          <span>{errors.fullName && errors.fullName}</span>
 
           <label htmlFor="email">Email address</label>
           <input
@@ -78,6 +100,7 @@ const ContactForm = () => {
             required
             placeholder="Email"
           />
+          <span>{errors.email && errors.email}</span>
 
           <label htmlFor="specialist">Specialist</label>
           <input
@@ -89,6 +112,8 @@ const ContactForm = () => {
             required
             placeholder="Specialist"
           />
+          <span>{errors.specialist && errors.specialist}</span>
+
           <input id="submit" type="submit" value="Make an appointment" />
         </form>
       </div>
