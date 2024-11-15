@@ -40,53 +40,53 @@ const ContactUs = () => {
                 </button>
               </div>
             </div>
-            <ContactForm />
-            <div className="locations">
-              <h3 id="title">Our Locations</h3>
-              <div className="location" id="vaxjo">
-                <h3>Växjö</h3>
-                <div className="address">
-                  <i className="fa-solid fa-location-dot"></i>
-                  <span>Storgatan 82A, 352 27 Växjö</span>
-                </div>
-                <div className="phone">
-                  <i className="fa-solid fa-phone-volume"></i>
-                  <span>040-641 63 00</span>
-                </div>
-                <div className="work-hours">
-                  <i className="fa-regular fa-clock"></i>
-                  <div className="hours">
-                    <span>
-                      <b>Mon-Fri</b> 08:00 am - 05:00 pm
-                    </span>
-                    <br />
-                    <span>
-                      <b>Sat-Sun</b> Close
-                    </span>
-                  </div>
+          </div>
+          <ContactForm />
+          <div className="locations">
+            <h3 id="title">Our Locations</h3>
+            <div className="location" id="vaxjo">
+              <h3>Växjö</h3>
+              <div className="address">
+                <i className="fa-solid fa-location-dot"></i>
+                <span>Storgatan 82A, 352 27 Växjö</span>
+              </div>
+              <div className="phone">
+                <i className="fa-solid fa-phone-volume"></i>
+                <span>040-641 63 00</span>
+              </div>
+              <div className="work-hours">
+                <i className="fa-regular fa-clock"></i>
+                <div className="hours">
+                  <span>
+                    <b>Mon-Fri</b> 08:00 am - 05:00 pm
+                  </span>
+                  <br />
+                  <span>
+                    <b>Sat-Sun</b> Close
+                  </span>
                 </div>
               </div>
-              <div className="location" id="goteborg">
-                <h3>Götebory</h3>
-                <div className="address">
-                  <i className="fa-solid fa-location-dot"></i>
-                  <span>Pumpgatan 1, 417 55 Göteborg</span>
-                </div>
-                <div className="phone">
-                  <i className="fa-solid fa-phone-volume"></i>
-                  <span>040-641 63 00</span>
-                </div>
-                <div className="work-hours">
-                  <i className="fa-regular fa-clock"></i>
-                  <div className="hours">
-                    <span>
-                      <b>Mon-Fri</b> 08:00 am - 05:00 pm
-                    </span>
-                    <br />
-                    <span>
-                      <b>Sat-Sun</b> Close
-                    </span>
-                  </div>
+            </div>
+            <div className="location" id="goteborg">
+              <h3>Götebory</h3>
+              <div className="address">
+                <i className="fa-solid fa-location-dot"></i>
+                <span>Pumpgatan 1, 417 55 Göteborg</span>
+              </div>
+              <div className="phone">
+                <i className="fa-solid fa-phone-volume"></i>
+                <span>040-641 63 00</span>
+              </div>
+              <div className="work-hours">
+                <i className="fa-regular fa-clock"></i>
+                <div className="hours">
+                  <span>
+                    <b>Mon-Fri</b> 08:00 am - 05:00 pm
+                  </span>
+                  <br />
+                  <span>
+                    <b>Sat-Sun</b> Close
+                  </span>
                 </div>
               </div>
             </div>
