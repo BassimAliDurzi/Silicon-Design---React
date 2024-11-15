@@ -5,12 +5,21 @@ const Subscribe = () => {
   const [subscribe, setSubscribe] = useState({
     email: "",
   });
-
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSubscribe({ ...subscribe, [name]: value });
+
+    if (value.trim() === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: `The ${name} field is required`,
+      }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    }
   };
 
   const handleOk = () => {
@@ -19,6 +28,18 @@ const Subscribe = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newErrors = {};
+    Object.keys(subscribe).forEach((field) => {
+      if (subscribe[field].trim() === "") {
+        newErrors[field] = `The ${field} field is required`;
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     const res = await fetch(
       "https://win24-assignment.azurewebsites.net/api/forms/subscribe",
@@ -59,7 +80,11 @@ const Subscribe = () => {
             <span>to stay informed about latest updates</span>
           </h3>
         </div>
-        <form action="#" className="subscribe-form" onSubmit={handleSubmit}>
+        <form
+          className="subscribe-form"
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <div>
             <input
               type="email"
@@ -71,6 +96,7 @@ const Subscribe = () => {
               placeholder="Your email"
             />
             <input id="sub" type="submit" value="Subscribe" />
+            <span>{errors.email && errors.email}</span>
           </div>
         </form>
       </div>

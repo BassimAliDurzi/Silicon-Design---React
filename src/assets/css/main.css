@@ -1137,6 +1137,12 @@ header .container {
       font-size: 16px;
       font-weight: 600;
     }
+
+    span {
+      color: red;
+      font-size: 12px;
+      margin-left: 0.5rem;
+    }
   }
 
   @media (min-width: 768px) {
