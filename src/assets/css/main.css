@@ -1530,7 +1530,7 @@ footer {
 }
 
 .informationBox {
-  width: 40rem;
+  width: 30rem;
   background-color: var(--clr-primary);
   color: var(--clr-headline);
   display: flex;
@@ -1538,6 +1538,7 @@ footer {
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
+  margin: 0 auto;
 
   button {
     background-color: white;
