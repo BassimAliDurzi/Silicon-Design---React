@@ -1400,9 +1400,10 @@ footer {
       input {
         width: 20rem;
         margin-bottom: 2rem;
-        line-height: 1.5rem;
+        padding: 0.75rem;
         border: 1px solid var(--clr-border);
         border-radius: 0.3rem;
+        font-size: 14px;
       }
 
       #submit {
@@ -1525,5 +1526,28 @@ footer {
         margin-left: 5rem;
       }
     }
+  }
+}
+
+.informationBox {
+  width: 40rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-headline);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+
+  button {
+    background-color: white;
+    color: var(--clr-primary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 2rem;
+    border: 1px solid var(--clr-border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 }
