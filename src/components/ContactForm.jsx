@@ -9,18 +9,49 @@ const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const validateField = (name, value) => {
+    let error = "";
+
+    if (name === "fullName" && !/^[A-Öa-ö\s\-]{2,}$/.test(value)) {
+      error = "Must be at least 2 character long and no numbers";
+    } else if (
+      name === "email" &&
+      !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)
+    ) {
+      errors = "Must be an valid email";
+    } else if (name === "specialist" && !/^[A-Öa-ö\s\-]{2,}$/.test(value)) {
+      error = "Must be at least 2 character long and no numbers";
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!/^[A-Öa-ö\s\-]{2,}$/.test(formData.fullName)) {
+      newErrors.fullName = "Must be at least 2 character long and no numbers";
+    }
+
+    if (
+      !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(formData.email)
+    ) {
+      newErrors.email = "Must be an valid email";
+    }
+
+    if (!/^[A-Öa-ö\s\-]{2,}$/.test(formData.specialist)) {
+      newErrors.specialist = "Must be at least 2 character long and no numbers";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    if (value.trim() === "") {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: `The ${name} field is required`,
-      }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-    }
+    validateField(name, value);
   };
 
   const handleOk = () => {
@@ -30,16 +61,10 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newErrors = {};
-    Object.keys(formData).forEach((field) => {
-      if (formData[field].trim() === "") {
-        newErrors[field] = `The ${field} field is required`;
-      }
-    });
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
+    if (validateForm()) {
+      console.log("form valid!");
+    } else {
+      console.log("form invalid!");
     }
 
     const res = await fetch(
@@ -78,7 +103,7 @@ const ContactForm = () => {
       <div className="contact-form">
         <h3>Get Online Consultation</h3>
         <form className="form" onSubmit={handleSubmit} noValidate>
-          <label htmlFor="fullName">Full name</label>
+          <label htmlFor="name">Full name</label>
           <input
             type="text"
             id="fullName"
