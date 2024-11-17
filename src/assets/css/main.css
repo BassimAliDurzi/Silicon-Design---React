@@ -1138,7 +1138,7 @@ header .container {
       font-weight: 600;
     }
 
-    span {
+    .errorMsg {
       color: red;
       font-size: 12px;
       margin-left: 0.5rem;

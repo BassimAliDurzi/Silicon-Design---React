@@ -105,7 +105,9 @@ const Subscribe = () => {
               placeholder="Your email"
             />
             <input id="sub" type="submit" value="Subscribe" />
-            <span>{errors.email && errors.email}</span>
+            <div className="errorMsg">
+              <span>{errors.email && errors.email}</span>
+            </div>
           </div>
         </form>
       </div>
