@@ -8,18 +8,37 @@ const Subscribe = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
+  const validateField = (name, value) => {
+    let error = "";
+
+    if (
+      name === "email" &&
+      !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)
+    ) {
+      errors = "Must be an valid email";
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (
+      !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(subscribe.email)
+    ) {
+      newErrors.email = "Must be an valid email";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSubscribe({ ...subscribe, [name]: value });
 
-    if (value.trim() === "") {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: `The ${name} field is required`,
-      }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-    }
+    validateField(name, value);
   };
 
   const handleOk = () => {
@@ -29,16 +48,10 @@ const Subscribe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newErrors = {};
-    Object.keys(subscribe).forEach((field) => {
-      if (subscribe[field].trim() === "") {
-        newErrors[field] = `The ${field} field is required`;
-      }
-    });
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
+    if (validateForm()) {
+      console.log("form valid!");
+    } else {
+      console.log("form invalid!");
     }
 
     const res = await fetch(
@@ -80,11 +93,7 @@ const Subscribe = () => {
             <span>to stay informed about latest updates</span>
           </h3>
         </div>
-        <form
-          className="subscribe-form"
-          onSubmit={handleSubmit}
-          noValidate
-        >
+        <form className="subscribe-form" onSubmit={handleSubmit} noValidate>
           <div>
             <input
               type="email"
