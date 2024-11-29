@@ -15,7 +15,7 @@ const Subscribe = () => {
       name === "email" &&
       !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)
     ) {
-      errors = "Must be an valid email";
+      error = "Must be an valid email";
     }
 
     setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));

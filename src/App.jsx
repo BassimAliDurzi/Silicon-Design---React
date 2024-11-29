@@ -10,30 +10,33 @@ import Faqs from "./Pages/Faqs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SubscribePage from "./Pages/SubscribePage";
+import AppProvider from "./contexts/AppContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="wrapper">
-        <div className="custom-margin-bottom">
-          <Header />
+    <AppProvider>
+      <BrowserRouter>
+        <div className="wrapper">
+          <div className="custom-margin-bottom">
+            <Header />
+          </div>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/features" element={<Features />} />
+              <Route
+                path="/clientTestimonials"
+                element={<ClientTestimonialsPage />}
+              />
+              <Route path="/faqs" element={<Faqs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/subscribe" element={<SubscribePage />} />
+            </Routes>
+          </main>
+          <Footer />
         </div>
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/features" element={<Features />} />
-            <Route
-              path="/clientTestimonials"
-              element={<ClientTestimonialsPage />}
-            />
-            <Route path="/faqs" element={<Faqs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/subscribe" element={<SubscribePage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
 

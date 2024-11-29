@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Testimonial from "./Testimonial";
+import { AppContext } from "../contexts/AppContext";
 
 const ClientTestimonials = () => {
-  const [testimonial, setTestimonial] = useState([]);
-
-  const getTestimonial = async () => {
-    const res = await fetch(
-      "https://win24-assignment.azurewebsites.net/api/testimonials"
-    );
-
-    const data = await res.json();
-    setTestimonial(data);
-  };
-
-  useEffect(() => {
-    getTestimonial();
-  }, []);
+  const { testimonial } = useContext(AppContext);
 
   return (
     <section id="clients-reviews">
       <div className="container">
         <h2>Clients are Loving Our App</h2>
-
         {testimonial.map((testimonial) => (
           <Testimonial key={testimonial.id} item={testimonial} />
         ))}

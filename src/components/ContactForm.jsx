@@ -18,7 +18,7 @@ const ContactForm = () => {
       name === "email" &&
       !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)
     ) {
-      errors = "Must be an valid email";
+      error = "Must be an valid email";
     } else if (name === "specialist" && !/^[A-Öa-ö\s\-]{2,}$/.test(value)) {
       error = "Must be at least 2 character long and no numbers";
     }

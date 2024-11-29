@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import FaqItems from "./FaqItems";
+import { AppContext } from "../contexts/AppContext";
 
 const FAQS = () => {
-  const [faq, setFaq] = useState([]);
-
-  const fetchFaq = async () => {
-    const res = await fetch(
-      "https://win24-assignment.azurewebsites.net/api/faq"
-    );
-    const data = await res.json();
-    setFaq(data);
-  };
-
-  useEffect(() => {
-    fetchFaq();
-  }, []);
+  const { faq } = useContext(AppContext);
 
   return (
     <section id="faqs">
